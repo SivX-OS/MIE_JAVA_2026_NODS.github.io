@@ -745,3 +745,44 @@ padding:20px;
 font-size:14px;
 color:#9ca3af;
 }
+
+
+/* FORM STATUS MESSAGE */
+.form-status {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.form-status.success {
+  color: #16a34a; /* green */
+}
+
+.form-status.error {
+  color: #dc2626; /* red */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+/* INPUT INTERACTION */
+.contact-form input,
+.contact-form textarea {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}

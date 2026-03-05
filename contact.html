@@ -73,26 +73,35 @@
 
       <!-- RIGHT FORM -->
       <div class="contact-form-wrapper">
-        <form class="contact-form">
+              <form 
+                  class="contact-form"
+                  action="https://formspree.io/f/xpqyadbr"
+                  method="POST"
+                  id="contactForm"
+                >
+                  <label>
+                    Name
+                    <input type="text" name="name" required>
+                  </label>
 
-          <label>
-            Name
-            <input type="text" required>
-          </label>
+                  <label>
+                    Email
+                    <input type="email" name="email" required>
+                  </label>
 
-          <label>
-            Email
-            <input type="email" required>
-          </label>
+                  <label>
+                    Message
+                    <textarea name="message" rows="5" required></textarea>
+                  </label>
 
-          <label>
-            Message
-            <textarea rows="5" required></textarea>
-          </label>
+                  <!-- EMAIL SUBJECT LINE -->
+                  <input type="hidden" name="_subject" value="Portfolio Contact - New Message">
 
-          <button type="submit" class="primary">Send Message</button>
+                  <button type="submit" class="primary">Send Message</button>
 
-        </form>
+                  <!-- Success message -->
+                  <p class="form-status" id="formStatus"></p>
+      </form>
 
         <!-- LinkedIn -->
         <div class="linkedin">

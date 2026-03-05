@@ -28,3 +28,89 @@ navItems.forEach(item => {
     item.classList.add('active');
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    status.textContent = "Sending message...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+
+        form.reset();  // clears fields immediately
+
+        status.textContent = "Thank you! Your message has been sent.";
+        status.className = "form-status success";
+
+      } else {
+
+        status.textContent = "Something went wrong. Please try again.";
+        status.className = "form-status error";
+
+      }
+
+    } catch (error) {
+
+      status.textContent = "Network error. Please try later.";
+      status.className = "form-status error";
+
+    }
+  });
+
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   const form = document.getElementById("contactForm");
+//   const status = document.getElementById("formStatus");
+
+//   if (!form) return;
+
+//   form.addEventListener("submit", async function (e) {
+//     e.preventDefault();
+
+//     const data = new FormData(form);
+
+//     try {
+//       const response = await fetch(form.action, {
+//         method: form.method,
+//         body: data,
+//         headers: {
+//           'Accept': 'application/json'
+//         }
+//       });
+
+//       if (response.ok) {
+//         status.textContent = "Thank you! Your message has been sent.";
+//         status.className = "form-status success";
+//         form.reset();
+//       } else {
+//         status.textContent = "Something went wrong. Please try again.";
+//         status.className = "form-status error";
+//       }
+
+//     } catch (error) {
+//       status.textContent = "⚠️ Network error. Please try later.";
+//       status.className = "form-status error";
+//     }
+//   });
+
+// });
